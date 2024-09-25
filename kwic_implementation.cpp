@@ -68,15 +68,14 @@ class Input {
       //Read each line of the file and store it in the vector
       string line;
 
-      while (getline(file, line)) {
-        readLine.fullLine = line;
-      }
+      getline(file, line))
+      readLine.fullLine = line;
 
       // Close the file
       file.close();
     }
 
-    void Call_Line_Storage_Set_Char(Line_Storage readLine) {
+    void Call_Line_Storage_Set_Char(Line_Storage &readLine) {
       int word = 1;
       int counter = 0;
       readLine.storedLines.push_back("");
@@ -91,7 +90,7 @@ class Input {
         else {
           readLine.Set_Char(counter, word, i, readLine.fullLine[i]);
 
-          if (i == ' ') {
+          if (readLine.fullLine[i] == ' ') {
             word++;
           }
         }
@@ -118,7 +117,37 @@ class Circular_Shift {
     }
 
     string Setup (Line_Storage readLine) {
+      int numWords;
+      vector<int> wordLengths;
+      string newLine = "";
+      char p;
 
+      for (int i = 0; i < readLine.storedLines.size(); i++) {
+        numWords = readLine.Get_Word(i);
+
+        stringstream splitLine(readLine.storedLines[i]);
+        string word;
+        while (splitLine >> word) {
+          wordLengths.push_back(length(word))
+        }
+
+        for (int j = 0; j < numWords; j++) {
+          int wl = 1;
+
+          while(wl <= wordLengths(j)) {
+            p = readLine.Get_Char(i, j, wl);
+            newLine += p;
+
+            wl++;
+          }
+
+          if(j != numWords - 1) {
+            newLine += " ";
+          }
+        }
+
+        
+      }
     }
 };
 
@@ -139,7 +168,7 @@ class Alphabetizer {
 
     }
 
-    void Merge_Sort() {
+    void Alpha() {
 
     }
 };
@@ -174,7 +203,7 @@ class Master_Control {
     }
 
     void Call_Circular_Shift() {
-
+      shiftedLine.Setup(readLine);
     }
 
     void Call_Alphabetizer() {
@@ -190,7 +219,7 @@ int main(int argc, char *argv[]) {
   if (argc == 1) {
     Master_Control kwic;
 
-    kwic.inputFileName = argv[0];
+    kwic.inputFileName = argv[1];
 
     kwic.Call_Input();
 
