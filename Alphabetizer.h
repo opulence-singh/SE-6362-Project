@@ -21,11 +21,12 @@ class Alphabetizer {
     void Set_Char(int alpha, int word, int chrc, char p);
 
   public:
-    vector<vector<string> > alphabetizedLines;
+    vector<string> alphabetizedLines;
+    vector<int> numWords;
 
-    char Get_Char(int alpha, int word, string chrc);
+    char Get_Char(int alpha, int word, int chrc);
 
-    string Get_Word(int alpha);
+    int Get_Word(int alpha);
 
     void Alpha(Circular_Shift &shiftedLine);
 };

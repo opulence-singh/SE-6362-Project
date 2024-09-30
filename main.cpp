@@ -4,11 +4,7 @@ Description: Implemenation of a Key Word in Context system
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <string.h>
-#include <vector>
-#include <sstream>
 
 #include "Master_Control.h"
 

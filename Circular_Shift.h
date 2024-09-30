@@ -24,7 +24,7 @@ class Circular_Shift {
     vector<vector<string> > shiftedLines;
     vector<int> numWords;
 
-    char Get_Char(int shift, int word, int chrc);
+    char Get_Char(int line, int shift, int word, int chrc);
 
     int Get_Word(int shift);
 

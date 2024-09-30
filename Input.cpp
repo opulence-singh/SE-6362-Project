@@ -15,22 +15,18 @@ Course: SE6362
 using namespace std;
 
 void Input::Read_File(Line_Storage &readLine) {
-  // Opens input file
   ifstream file(fileName);
 
-  // Checks if file has been opened
   if (!file.is_open()) {
     cout << "Error opening the file!" << endl;
     exit(1);
   }
 
-  //Read each line of the file and store it in the vector
   string line;
 
   getline(file, line);
   readLine.fullLine = line;
 
-  // Close the file
   file.close();
 }
 
@@ -58,4 +54,6 @@ void Input::Call_Line_Storage_Set_Char(Line_Storage &readLine) {
       }
     }
   }
+
+  readLine.numWords.push_back(word);
 }

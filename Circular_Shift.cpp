@@ -19,8 +19,19 @@ void Circular_Shift::Set_Char(int shift, int word, int chrc, char p) {
   Circular_Shift::shiftedLines[shift][word].push_back(p);
 }
 
-char Circular_Shift::Get_Char(int shift, int word, int chrc) {
-  return 'P';
+char Circular_Shift::Get_Char(int line, int shift, int word, int chrc) {
+  char p;
+  string token = " ";
+  vector<string> words;
+  stringstream splitLine(Circular_Shift::shiftedLines[line][shift]);
+
+  while (splitLine >> token) {
+    words.push_back(token.c_str());
+  }
+
+  p = words[word][chrc];
+
+  return p;
 }
 
 int Circular_Shift::Get_Word(int shift) {
@@ -29,10 +40,10 @@ int Circular_Shift::Get_Word(int shift) {
 
 void Circular_Shift::Setup (Line_Storage &readLine) {
   int numWord;
-  vector<int> wordLengths;
   char p;
 
   for (int i = 0; i < readLine.storedLines.size(); i++) {
+    vector<int> wordLengths;
     string newLine = "";
     numWord = readLine.Get_Word(i);
     Circular_Shift::numWords.push_back(numWord);
@@ -67,6 +78,7 @@ void Circular_Shift::Setup (Line_Storage &readLine) {
 
     for (int j = 0; j < numWord; j++) {
       Circular_Shift::shiftedLines[i].push_back("");
+
       if (j == 0) {
         for(int k = 0; k < newLine.length(); k++) {
           Circular_Shift::Set_Char(i, j, k, newLine[k]);
@@ -114,12 +126,14 @@ void Circular_Shift::Setup (Line_Storage &readLine) {
           counter++;
         }
 
-        if (j != numWord) {
+        if (j != numWord - 1 && j != numWord) {
           for (int k = 0; k < newLine.length(); k++) {
             Circular_Shift::Set_Char(i, j + 1, k, newLine[k]);
           }
         }
       }
     }
+
+    Circular_Shift::shiftedLines[i].pop_back();
   }
 }
