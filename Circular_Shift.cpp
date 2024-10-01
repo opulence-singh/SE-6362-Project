@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Circular_Shift.cpp
-Description:
+Description: Definition of the Circular_Shift class
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>

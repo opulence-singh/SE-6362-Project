@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Output.cpp
-Description:
+Description: Definition of the Output class
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>

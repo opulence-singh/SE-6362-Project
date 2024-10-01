@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Output.h
-Description:
+Description: Declaration of the class Display_Lines
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #pragma once

@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Input.cpp
-Description:
+Description: Definition of the Input class
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>

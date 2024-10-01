@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Alphabetizer.cpp
-Description:
+Description: Definition of the Alphabetizer class
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>

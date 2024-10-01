@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Line_Storage.cpp
-Description:
+Description: Definition of the Line_Storage class
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>

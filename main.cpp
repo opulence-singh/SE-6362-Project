@@ -1,6 +1,13 @@
 /*------------------------------------------------------------------------------
 Name: main.cpp
-Description: Implemenation of a Key Word in Context system
+Description: Implemenation of a Key Word in Context system. It is compose of the
+following classes
+1) Master_Control
+2) Input
+3) Line_Storage
+4) Circular_Shift
+5) Alphabetizer
+6) Output
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>
@@ -11,9 +18,10 @@ Course: SE6362
 using namespace std;
 
 int main(int argc, char *argv[]) {
+  // Checks if it has receiving two inputs from the user
   if (argc == 2) {
     Master_Control kwic;
-    kwic.inputFileName = argv[1];
+    kwic.inputFileName = argv[1]; // Second input is the name of the file
 
     kwic.Call_Input();
     kwic.Call_Circular_Shift();

@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Master_Control.cpp
-Description:
+Description: Definition of the Master_Control class
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #include <iostream>

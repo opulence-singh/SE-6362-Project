@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Circular_Shift.h
-Description:
+Description: Declaration of the class Circular_Shift
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #pragma once
@@ -18,15 +18,15 @@ using namespace std;
 
 class Circular_Shift {
   private:
-    void Set_Char(int shift, int word, int chrc, char p);
+    void Set_Char(int shift, int word, int chrc, char p); // Stores in a vector each shifted line read character by character
 
   public:
     vector<vector<string> > shiftedLines;
     vector<int> numWords;
 
-    char Get_Char(int line, int shift, int word, int chrc);
+    char Get_Char(int line, int shift, int word, int chrc); // Returns a character from a specific shifted line and word
 
-    int Get_Word(int shift);
+    int Get_Word(int shift); // Returns the number of words a specific shifted line has 
 
-    void Setup (Line_Storage &readLine);
+    void Setup (Line_Storage &readLine); // Calls the function Get_Char & Get_Word from the Line_Storage class to get the lines and circular shift them
 };

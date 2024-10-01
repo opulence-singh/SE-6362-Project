@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------
 Name: Line_Storage.h
-Description:
+Description: Declaration of the class Line_Storage
 Course: SE6362
 ------------------------------------------------------------------------------*/
 #pragma once
@@ -20,9 +20,9 @@ class Line_Storage {
     vector<string> storedLines;
     vector<int> numWords;
 
-    void Set_Char(int line, int word, int chrc, char p);
+    void Set_Char(int line, int word, int chrc, char p); // Stores in a vector each line read character by character
 
-    char Get_Char(int line, int word, int chrc);
+    char Get_Char(int line, int word, int chrc); // Returns a character from a specific line and word
 
-    int Get_Word(int line);
+    int Get_Word(int line); // Returns the number of words a specific line has
 };
