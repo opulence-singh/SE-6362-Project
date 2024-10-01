@@ -18,5 +18,5 @@ using namespace std;
 
 class Output {
   public:
-  void Display_Lines(Alphabetizer alphabetizedLine);
+  void Display_Lines(Alphabetizer alphabetizedLine, ofstream &oFile);
 };

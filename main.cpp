@@ -23,10 +23,14 @@ int main(int argc, char *argv[]) {
     Master_Control kwic;
     kwic.inputFileName = argv[1]; // Second input is the name of the file
 
-    kwic.Call_Input();
-    kwic.Call_Circular_Shift();
-    kwic.Call_Alphabetizer();
-    kwic.Call_Output();
+    ofstream oFile(kwic.outputFileName);
+
+    kwic.Call_Input(oFile);
+    kwic.Call_Circular_Shift(oFile);
+    kwic.Call_Alphabetizer(oFile);
+    kwic.Call_Output(oFile);
+
+    oFile.close();
   }
 
   else {

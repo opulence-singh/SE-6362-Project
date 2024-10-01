@@ -28,5 +28,5 @@ class Alphabetizer {
 
     int Get_Word(int alpha); // Returns the number of words a specific alphabetized line has
 
-    void Alpha(Circular_Shift &shiftedLine); // Calls the function Get_Char & Get_Word from the Circular Shifte class to get the shifted lines and alphabetized them
+    void Alpha(Circular_Shift &shiftedLine, ofstream &oFile); // Calls the function Get_Char & Get_Word from the Circular Shifte class to get the shifted lines and alphabetized them
 };

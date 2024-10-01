@@ -18,10 +18,8 @@ Course: SE6362
 using namespace std;
 
 class Master_Control {
-  private:
-    const string outputFileName;
-
   public:
+    const string outputFileName = "ouput.txt";
     string inputFileName;
 
     // Create objects of all the classes that Master_Control need to invoke
@@ -31,12 +29,11 @@ class Master_Control {
     Alphabetizer alphabetizedLine;
     Output outputFile;
 
+    void Call_Input(ofstream &oFile); // Calls Read_File in Input
 
-    void Call_Input(); // Calls Read_File in Input
+    void Call_Circular_Shift(ofstream &oFile); // Calls Setup in Circular_Shift
 
-    void Call_Circular_Shift(); // Calls Setup in Circular_Shift
+    void Call_Alphabetizer(ofstream &oFile); // Calls Alpha in Alphabetizer
 
-    void Call_Alphabetizer(); // Calls Alpha in Alphabetizer
-
-    void Call_Output(); // Calls Display_Lines in Output
+    void Call_Output(ofstream &oFile); // Calls Display_Lines in Output
 };

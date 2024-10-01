@@ -110,12 +110,12 @@ int Alphabetizer::Get_Word(int alpha) {
   return Alphabetizer::numWords[alpha];
 }
 
-void Alphabetizer::Alpha(Circular_Shift &shiftedLine) {
+void Alphabetizer::Alpha(Circular_Shift &shiftedLine, ofstream &oFile) {
   vector<vector<string> > temp1;
   int numWord;
   char p;
 
-  cout << "Alphabetization By Line:" << endl;
+  oFile << "Alphabetization By Line:" << endl;
 
 
   for(int i = 0; i < shiftedLine.shiftedLines.size(); i++) {
@@ -167,10 +167,10 @@ void Alphabetizer::Alpha(Circular_Shift &shiftedLine) {
     mergeSort(temp1[i], 0, numShiftedLines - 1);
 
     for(int j = 0; j < temp1[i].size(); j++) {
-      cout << temp1[i][j] << endl;
+      oFile << temp1[i][j] << endl;
     }
 
-    cout << " " << endl;
+    oFile << " " << endl;
   }
 
   vector<string> temp2;

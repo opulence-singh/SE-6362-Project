@@ -14,11 +14,11 @@ Course: SE6362
 
 using namespace std;
 
-void Output::Display_Lines(Alphabetizer alphabetizedLine) {
+void Output::Display_Lines(Alphabetizer alphabetizedLine, ofstream &oFile) {
   int numWord;
   char p;
 
-  cout << "Alphabetizes Lines:" << endl;
+  oFile << "Alphabetizes Lines:" << endl;
 
   for (int i = 0; i < alphabetizedLine.alphabetizedLines.size(); i++){
     vector<int> wordLengths;
@@ -52,6 +52,6 @@ void Output::Display_Lines(Alphabetizer alphabetizedLine) {
       }
     }
 
-    cout << newLine << endl;
+    oFile << newLine << endl;
   }
 }
