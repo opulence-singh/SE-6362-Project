@@ -9,6 +9,7 @@ Course: SE6362
 #include <string.h>
 #include <vector>
 #include <sstream>
+#include <cctype>
 
 #include "Alphabetizer.h"
 
@@ -37,7 +38,18 @@ void merge(vector<string> &shiftedLines, int left, int mid, int right) {
     int pointer = left;
 
     while (leftIndex < size1 && rightIndex < size2) {
-      if (leftShiftedLines[leftIndex] <= rightShiftedLines[rightIndex]) {
+      string temp1 = "";
+      string temp2 = "";
+
+      for(int i = 0; i < leftShiftedLines[leftIndex].length(); i++) {
+        temp1 += toupper(leftShiftedLines[leftIndex][i]);
+      }
+
+      for(int i = 0; i < rightShiftedLines[rightIndex].length(); i++) {
+        temp2 += toupper(rightShiftedLines[rightIndex][i]);
+      }
+
+      if (temp1 <= temp2) {
         shiftedLines[pointer] = leftShiftedLines[leftIndex];
         leftIndex++;
       }
