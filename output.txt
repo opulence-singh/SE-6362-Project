@@ -1,0 +1,80 @@
+<h1>Read Lines: </h1>
+The Lion King
+Cindrella and the Beauty
+The Legend
+The Mummy returns
+Baby Doll goes to China
+Home Alone
+
+<h1>Shifted Lines: </h1>
+The Lion King
+Lion King The
+King The Lion
+
+Cindrella and the Beauty
+and the Beauty Cindrella
+the Beauty Cindrella and
+Beauty Cindrella and the
+
+The Legend
+Legend The
+
+The Mummy returns
+Mummy returns The
+returns The Mummy
+
+Baby Doll goes to China
+Doll goes to China Baby
+goes to China Baby Doll
+to China Baby Doll goes
+China Baby Doll goes to
+
+Home Alone
+Alone Home
+
+<h1>Alphabetization By Line:</h1>
+King The Lion
+Lion King The
+The Lion King
+ <br>
+and the Beauty Cindrella
+Beauty Cindrella and the
+Cindrella and the Beauty
+the Beauty Cindrella and
+ <br>
+Legend The
+The Legend
+ <br>
+Mummy returns The
+returns The Mummy
+The Mummy returns
+ <br>
+Baby Doll goes to China
+China Baby Doll goes to
+Doll goes to China Baby
+goes to China Baby Doll
+to China Baby Doll goes
+ <br>
+Alone Home
+Home Alone
+ <br>
+<h1>Alphabetizes Lines:</h1>
+Alone Home
+and the Beauty Cindrella
+Baby Doll goes to China
+Beauty Cindrella and the
+China Baby Doll goes to
+Cindrella and the Beauty
+Doll goes to China Baby
+goes to China Baby Doll
+Home Alone
+King The Lion
+Legend The
+Lion King The
+Mummy returns The
+returns The Mummy
+the Beauty Cindrella and
+The Legend
+The Lion King
+The Mummy returns
+to China Baby Doll goes

@@ -14,10 +14,12 @@ Course: SE6362
 
 using namespace std;
 
-void Input::Read_File(Line_Storage &readLine) {
+void Input::Read_File(Line_Storage &readLine)
+{
   ifstream file(fileName);
 
-  if (!file.is_open()) {
+  if (!file.is_open())
+  {
     cout << "Error opening the file!" << endl;
     exit(1);
   }
@@ -30,13 +32,16 @@ void Input::Read_File(Line_Storage &readLine) {
   file.close();
 }
 
-void Input::Call_Line_Storage_Set_Char(Line_Storage &readLine) {
+void Input::Call_Line_Storage_Set_Char(Line_Storage &readLine)
+{
   int word = 1;
   int counter = 0;
   readLine.storedLines.push_back("");
 
-  for (int i = 0; i < readLine.fullLine.length(); i++) {
-    if (readLine.fullLine[i] == '$') {
+  for (int i = 0; i < readLine.fullLine.length(); i++)
+  {
+    if (readLine.fullLine[i] == '$')
+    {
       counter++;
 
       readLine.storedLines.push_back("");
@@ -46,10 +51,12 @@ void Input::Call_Line_Storage_Set_Char(Line_Storage &readLine) {
       word = 1;
     }
 
-    else {
+    else
+    {
       readLine.Set_Char(counter, word, i, readLine.fullLine[i]);
 
-      if (readLine.fullLine[i] == ' ') {
+      if (readLine.fullLine[i] == ' ')
+      {
         word++;
       }
     }

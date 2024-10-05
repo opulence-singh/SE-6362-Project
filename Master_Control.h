@@ -17,23 +17,24 @@ Course: SE6362
 
 using namespace std;
 
-class Master_Control {
-  public:
-    const string outputFileName = "ouput.txt";
-    string inputFileName;
+class Master_Control
+{
+public:
+  string outputFileName;
+  string inputFileName;
 
-    // Create objects of all the classes that Master_Control need to invoke
-    Input inputFile;
-    Line_Storage readLine;
-    Circular_Shift shiftedLine;
-    Alphabetizer alphabetizedLine;
-    Output outputFile;
+  // Create objects of all the classes that Master_Control need to invoke
+  Input inputFile;
+  Line_Storage readLine;
+  Circular_Shift shiftedLine;
+  Alphabetizer alphabetizedLine;
+  Output outputFile;
 
-    void Call_Input(ofstream &oFile); // Calls Read_File in Input
+  void Call_Input(ofstream &oFile); // Calls Read_File in Input
 
-    void Call_Circular_Shift(ofstream &oFile); // Calls Setup in Circular_Shift
+  void Call_Circular_Shift(ofstream &oFile); // Calls Setup in Circular_Shift
 
-    void Call_Alphabetizer(ofstream &oFile); // Calls Alpha in Alphabetizer
+  void Call_Alphabetizer(ofstream &oFile); // Calls Alpha in Alphabetizer
 
-    void Call_Output(ofstream &oFile); // Calls Display_Lines in Output
+  void Call_Output(ofstream &oFile); // Calls Display_Lines in Output
 };

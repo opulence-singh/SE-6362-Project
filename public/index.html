@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Search</h1>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="text" name="search" placeholder="search" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <h2 class="mt-5">Index</h2>
+        <ul>
+            <!-- This is where the output data will be injected -->
+        </ul>
+    </div>
+
+</body>
+
+</html>
