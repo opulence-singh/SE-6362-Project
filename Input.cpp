@@ -13,26 +13,7 @@ Course: SE6362
 #include "Input.h"
 
 using namespace std;
-
-void Input::Read_File(Line_Storage &readLine)
-{
-  ifstream file(fileName);
-
-  if (!file.is_open())
-  {
-    cout << "Error opening the file!" << endl;
-    exit(1);
-  }
-
-  string line;
-
-  getline(file, line);
-  readLine.fullLine = line;
-
-  file.close();
-}
-
-void Input::Call_Line_Storage_Set_Char(Line_Storage &readLine)
+void Input::Store_Input(Line_Storage &readLine)
 {
   int word = 1;
   int counter = 0;
@@ -63,4 +44,24 @@ void Input::Call_Line_Storage_Set_Char(Line_Storage &readLine)
   }
 
   readLine.numWords.push_back(word);
+}
+
+void Input::Read_File(Line_Storage &readLine)
+{
+  ifstream file(fileName);
+
+  if (!file.is_open())
+  {
+    cout << "Error opening the file!" << endl;
+    exit(1);
+  }
+
+  string line;
+
+  getline(file, line);
+  readLine.fullLine = line;
+
+  file.close();
+
+  Input::Store_Input(readLine);
 }

@@ -15,7 +15,7 @@ Course: SE6362
 
 using namespace std;
 
-void merge(vector<string> &shiftedLines, int left, int mid, int right)
+void Alphabetizer::Merge(vector<string> &shiftedLines, int left, int mid, int right)
 {
   int size1;
   int size2;
@@ -85,17 +85,17 @@ void merge(vector<string> &shiftedLines, int left, int mid, int right)
   }
 }
 
-void mergeSort(vector<string> &shiftedLines, int left, int right)
+void Alphabetizer::MergeSort(vector<string> &shiftedLines, int left, int right)
 {
   if (left < right)
   {
     int mid;
     mid = left + (right - left) / 2;
 
-    mergeSort(shiftedLines, left, mid);
-    mergeSort(shiftedLines, mid + 1, right);
+    MergeSort(shiftedLines, left, mid);
+    MergeSort(shiftedLines, mid + 1, right);
 
-    merge(shiftedLines, left, mid, right);
+    Merge(shiftedLines, left, mid, right);
   }
 }
 
@@ -126,9 +126,55 @@ int Alphabetizer::Get_Word(int alpha)
   return Alphabetizer::numWords[alpha];
 }
 
-void Alphabetizer::Alpha(Circular_Shift &shiftedLine, ofstream &oFile)
+void Alphabetizer::Read_Line(Circular_Shift shiftedLine, vector<vector<string> > &temp1, int line)
 {
-  vector<vector<string>> temp1;
+  int numWord = shiftedLine.Get_Word(line);
+  char p;
+
+  for (int j = 0; j < shiftedLine.shiftedLines[line].size(); j++)
+  {
+    temp1[line].push_back("");
+
+    vector<int> wordLengths;
+    string newLine = "";
+
+    stringstream splitLine(shiftedLine.shiftedLines[line][j]);
+    string token = " ";
+    vector<string> words;
+
+    while (splitLine >> token)
+    {
+      words.push_back(token.c_str());
+    }
+
+    for (int k = 0; k < words.size(); k++)
+    {
+      wordLengths.push_back(words[k].length());
+    }
+
+    for (int k = 0; k < numWord; k++)
+    {
+      int wl = 0;
+
+      while (wl < wordLengths[k])
+      {
+        p = shiftedLine.Get_Char(line, j, k, wl);
+        temp1[line][j] += p;
+
+        wl++;
+      }
+
+      if (k != numWord - 1)
+      {
+        temp1[line][j] += " ";
+      }
+    }
+  }
+}
+
+void Alphabetizer::Generate_Alpha(Circular_Shift &shiftedLine, ofstream &oFile)
+{
+  vector<vector<string> > temp1;
   int numWord;
   char p;
 
@@ -139,45 +185,7 @@ void Alphabetizer::Alpha(Circular_Shift &shiftedLine, ofstream &oFile)
     temp1.push_back(vector<string>());
     numWord = shiftedLine.Get_Word(i);
 
-    for (int j = 0; j < shiftedLine.shiftedLines[i].size(); j++)
-    {
-      temp1[i].push_back("");
-
-      vector<int> wordLengths;
-      string newLine = "";
-
-      stringstream splitLine(shiftedLine.shiftedLines[i][j]);
-      string token = " ";
-      vector<string> words;
-
-      while (splitLine >> token)
-      {
-        words.push_back(token.c_str());
-      }
-
-      for (int k = 0; k < words.size(); k++)
-      {
-        wordLengths.push_back(words[k].length());
-      }
-
-      for (int k = 0; k < numWord; k++)
-      {
-        int wl = 0;
-
-        while (wl < wordLengths[k])
-        {
-          p = shiftedLine.Get_Char(i, j, k, wl);
-          temp1[i][j] += p;
-
-          wl++;
-        }
-
-        if (k != numWord - 1)
-        {
-          temp1[i][j] += " ";
-        }
-      }
-    }
+    Alphabetizer::Read_Line(shiftedLine, temp1, i);
   }
 
   int totalSize = 0;
@@ -188,7 +196,7 @@ void Alphabetizer::Alpha(Circular_Shift &shiftedLine, ofstream &oFile)
 
     totalSize += numShiftedLines;
 
-    mergeSort(temp1[i], 0, numShiftedLines - 1);
+    MergeSort(temp1[i], 0, numShiftedLines - 1);
 
     for (int j = 0; j < temp1[i].size(); j++)
     {
@@ -216,7 +224,7 @@ void Alphabetizer::Alpha(Circular_Shift &shiftedLine, ofstream &oFile)
     }
   }
 
-  mergeSort(temp2, 0, totalSize - 1);
+  MergeSort(temp2, 0, totalSize - 1);
 
   for (int i = 0; i < temp2.size(); i++)
   {

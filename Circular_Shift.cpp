@@ -41,26 +41,70 @@ int Circular_Shift::Get_Word(int shift)
   return Circular_Shift::numWords[shift];
 }
 
-void Circular_Shift::Setup(Line_Storage &readLine)
+string Circular_Shift::Read_Line(Line_Storage readLine, int line) {
+  int numWord;
+  char p;
+
+  vector<int> wordLengths;
+
+  string newLine = "";
+
+  numWord = readLine.Get_Word(line);
+
+  Circular_Shift::numWords.push_back(numWord);
+
+  Circular_Shift::shiftedLines.push_back(vector<string>());
+
+  stringstream splitLine(readLine.storedLines[line]);
+  string token = " ";
+  vector<string> words;
+
+  while (splitLine >> token)
+  {
+    words.push_back(token.c_str());
+  }
+
+  for (int j = 0; j < words.size(); j++)
+  {
+    wordLengths.push_back(words[j].length());
+  }
+
+  for (int j = 0; j < numWord; j++)
+  {
+    int wl = 1;
+
+    while (wl <= wordLengths[j])
+    {
+      p = readLine.Get_Char(line, j, wl);
+      newLine += p;
+
+      wl++;
+    }
+
+    if (j != numWord - 1)
+    {
+      newLine += " ";
+    }
+  }
+
+  return newLine;
+}
+
+void Circular_Shift::Generate_Circular_Shift(Line_Storage &readLine)
 {
   int numWord;
   char p;
 
   for (int i = 0; i < readLine.storedLines.size(); i++)
   {
-    vector<int> wordLengths;
-
-    string newLine = "";
-
+    string newLine = Circular_Shift::Read_Line(readLine, i);
+    cout << newLine << endl;
     numWord = readLine.Get_Word(i);
-
-    Circular_Shift::numWords.push_back(numWord);
-
-    Circular_Shift::shiftedLines.push_back(vector<string>());
 
     stringstream splitLine(readLine.storedLines[i]);
     string token = " ";
     vector<string> words;
+    vector<int> wordLengths;
 
     while (splitLine >> token)
     {
@@ -70,24 +114,6 @@ void Circular_Shift::Setup(Line_Storage &readLine)
     for (int j = 0; j < words.size(); j++)
     {
       wordLengths.push_back(words[j].length());
-    }
-
-    for (int j = 0; j < numWord; j++)
-    {
-      int wl = 1;
-
-      while (wl <= wordLengths[j])
-      {
-        p = readLine.Get_Char(i, j, wl);
-        newLine += p;
-
-        wl++;
-      }
-
-      if (j != numWord - 1)
-      {
-        newLine += " ";
-      }
     }
 
     for (int j = 0; j < numWord; j++)

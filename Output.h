@@ -17,6 +17,9 @@ Course: SE6362
 using namespace std;
 
 class Output {
+  private:
+    void Print(Alphabetizer alphabetizedLine, ofstream &oFile);
+    
   public:
-  void Display_Lines(Alphabetizer alphabetizedLine, ofstream &oFile);
+    void Display_Lines(Alphabetizer alphabetizedLine, ofstream &oFile);
 };

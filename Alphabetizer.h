@@ -20,6 +20,12 @@ class Alphabetizer {
   private:
     void Set_Char(int alpha, int word, int chrc, char p); // Stores in a vector each alphabetized line read character by character
 
+    void Merge(vector<string> &shiftedLines, int left, int mid, int right);
+
+    void MergeSort(vector<string> &shiftedLines, int left, int right);
+
+    void Read_Line(Circular_Shift shiftedLine, vector<vector<string> > &temp1, int line);
+
   public:
     vector<string> alphabetizedLines;
     vector<int> numWords;
@@ -28,5 +34,5 @@ class Alphabetizer {
 
     int Get_Word(int alpha); // Returns the number of words a specific alphabetized line has
 
-    void Alpha(Circular_Shift &shiftedLine, ofstream &oFile); // Calls the function Get_Char & Get_Word from the Circular Shifte class to get the shifted lines and alphabetized them
+    void Generate_Alpha(Circular_Shift &shiftedLine, ofstream &oFile); // Calls the function Get_Char & Get_Word from the Circular Shifte class to get the shifted lines and alphabetized them
 };

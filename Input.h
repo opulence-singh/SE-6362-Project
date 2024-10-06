@@ -17,10 +17,11 @@ Course: SE6362
 using namespace std;
 
 class Input {
+  private:
+    void Store_Input(Line_Storage &readLine); // Divides the input and calls the function Set_Char from the class Line_Storage
+
   public:
     string fileName;
 
     void Read_File(Line_Storage &readLine); // Reads the file that was input by the user
-
-    void Call_Line_Storage_Set_Char(Line_Storage &readLine); // Divides the input and calls the function Set_Char from the class Line_Storage
 };

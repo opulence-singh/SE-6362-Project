@@ -20,8 +20,6 @@ void Master_Control::Call_Input(ofstream &oFile)
 
   inputFile.Read_File(readLine);
 
-  inputFile.Call_Line_Storage_Set_Char(readLine);
-
   oFile << "<h1>Read Lines: </h1>" << endl;
 
   for (int i = 0; i < readLine.storedLines.size(); i++)
@@ -34,7 +32,7 @@ void Master_Control::Call_Input(ofstream &oFile)
 void Master_Control::Call_Circular_Shift(ofstream &oFile)
 {
   cout << "Setting up Circular Shift..." << endl;
-  shiftedLine.Setup(readLine);
+  shiftedLine.Generate_Circular_Shift(readLine);
   cout << "Circular Shift setup complete." << endl;
 
   oFile << "<h1>Shifted Lines: </h1>" << endl;
@@ -50,7 +48,7 @@ void Master_Control::Call_Circular_Shift(ofstream &oFile)
 
 void Master_Control::Call_Alphabetizer(ofstream &oFile)
 {
-  alphabetizedLine.Alpha(shiftedLine, oFile);
+  alphabetizedLine.Generate_Alpha(shiftedLine, oFile);
 }
 
 void Master_Control::Call_Output(ofstream &oFile)
